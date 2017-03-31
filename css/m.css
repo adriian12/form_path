@@ -156,9 +156,13 @@ input[type="radio"] {
     border: 0 3px 3px 3px solid black;
     display: none;
 }
+#resultadosDiv p {
+    color: blue;
+}
 
 #resultadoTotal p {
     padding: 0;
     text-align: center;
     font-size: 5em;
+    color: red;
 }
