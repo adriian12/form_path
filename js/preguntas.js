@@ -10,9 +10,6 @@ var respuestaRadio2 = null;
 var respuestasMultiple = [];
 var respuestasMultiple2 = [];
 
-
-var xmlDoc = null; //global, para modificarlo y serializarlo (y sacarlo por pantalla)
-var xslDoc = null;
 var nota = 0; //nota de la prueba sobre 3 puntos (hay 3 preguntas)
 
 //****************************************************************************************************
@@ -71,17 +68,6 @@ window.onload = function() {
         document.getElementById("resultadoTotal").style.display = "none";
         document.getElementById("resultadosDiv").style.display = "block";
     }
-
-    //LEER XSL de xml/questions.xml
-    var xhttp2 = new XMLHttpRequest();
-    xhttp2.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            xslDoc = this.responseXML;
-        }
-    };
-    xhttp2.open("GET", "xml/transform.xsl", true);
-    xhttp2.send();
-
 }
 
 //****************************************************************************************************
@@ -555,19 +541,15 @@ function tituloCorreccion() {
     darRespuestaHtml("Puntuación: ");
 }
 
-
 function presentarNota() {
     var p = document.createElement("p");
     var node = document.createTextNode("Tu nota es: " + nota.toFixed(2));
     p.appendChild(node);
     document.getElementById("resultadoTotal").appendChild(p);
 }
-
-
-
 //	inicializar la corrección
 function inicializar() {
-    document.getElementById('resultadosDiv2').innerHTML = "";
+    document.getElementById('resultadosDiv').innerHTML = "";
     nota = 0.0;
 }
 
